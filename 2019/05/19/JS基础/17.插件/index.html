@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="弹窗插件function Popover(options){     //1.设置默认值，与传进来的对下那个进行合并     var defaults = {         width:600,         height:&amp;apos;auto&amp;apos;,//可以是数值         position:&amp;apos;center&amp;apos;,//可以传进来对象{x,y}         ti">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js简介(插件封装解析)">
+<meta property="og:url" content="https://462937186.github.io/2019/05/19/JS基础/17.插件/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="弹窗插件function Popover(options){     //1.设置默认值，与传进来的对下那个进行合并     var defaults = {         width:600,         height:&amp;apos;auto&amp;apos;,//可以是数值         position:&amp;apos;center&amp;apos;,//可以传进来对象{x,y}         ti">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-19T04:34:11.233Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js简介(插件封装解析)">
+<meta name="twitter:description" content="弹窗插件function Popover(options){     //1.设置默认值，与传进来的对下那个进行合并     var defaults = {         width:600,         height:&amp;apos;auto&amp;apos;,//可以是数值         position:&amp;apos;center&amp;apos;,//可以传进来对象{x,y}         ti">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://462937186.github.io/2019/05/19/JS基础/17.插件/">
+
+
+
+
+
+  <title>js简介(插件封装解析) | 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://462937186.github.io/2019/05/19/JS基础/17.插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Admin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js简介(插件封装解析)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T12:23:54+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js基础/" itemprop="url" rel="index">
+                    <span itemprop="name">JS基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="弹窗插件"><a href="#弹窗插件" class="headerlink" title="弹窗插件"></a>弹窗插件</h2><pre><code>function Popover(options){
+    //1.设置默认值，与传进来的对下那个进行合并
+    var defaults = {
+        width:600,
+        height:&apos;auto&apos;,//可以是数值
+        position:&apos;center&apos;,//可以传进来对象{x,y}
+        title:&apos;弹窗标题&apos;,
+        content:&apos;&apos;,
+        draggable:true,
+        overlay:0.3 //数字：有遮罩层，false：无遮罩层
+    }
+    var opt = Object.assign({},defaults,options);
+    this.position = opt.position;
+    this.init(opt);
+}
+Popover.prototype = {
+    init(opt){
+        //2.初始化方法：
+        //（1）创建弹窗this.ele，设置宽高
+        this.ele = document.createElement(&apos;div&apos;);
+        this.ele.className = &apos;popover&apos;;
+        this.ele.style.width = opt.width + &apos;px&apos;;
+        if(typeof opt.height === &apos;number&apos;){
+            this.ele.style.height = opt.height + &apos;px&apos;;
+        }
+        //（2）标题和内容（设置类名title、content）
+        var title = document.createElement(&apos;div&apos;);
+        title.className = &apos;title&apos;;
+        title.innerHTML = opt.title;
+        this.ele.appendChild(title);
+        var content = document.createElement(&apos;div&apos;);
+        content.className = &apos;content&apos;;
+        content.innerHTML = opt.content;
+        this.ele.appendChild(content);
+        // (3)遮罩层(判断overlay是数字则为透明度，为false则不设置遮罩层)（类名、透明度）
+        if(opt.overlay !== false){
+            this.bg = document.createElement(&apos;div&apos;);
+            this.bg.className = &apos;overlay&apos;;
+            this.bg.style.opacity = opt.overlay;
+            document.body.appendChild(this.bg);
+        }
+        // （4）删除按钮（类名、内容）
+        var btnClose = document.createElement(&apos;span&apos;);
+        btnClose.className = &apos;btn-close&apos;;
+        btnClose.innerHTML = &apos;&amp;times;&apos;;
+        this.ele.appendChild(btnClose);
+        // （5）弹窗写入页面，并显示弹窗
+        document.body.appendChild(this.ele);
+        this.show();
+        // （6）设置关闭事件
+        btnClose.onclick = function(){
+            this.close();
+        }.bind(this);
+        //（7）拖拽
+        if(opt.draggable){
+            this.drag();
+        }
+    },
+    //3.1显示：设置成块，同时调用定位方法
+    show(){
+        this.ele.style.display = &apos;block&apos;;
+        if(this.bg){
+            this.bg.style.display = &apos;block&apos;;
+        }
+        this.setPosition();
+    },
+    //3.2隐藏：
+    close(){
+        this.ele.style.display = &apos;none&apos;;
+        if(this.bg){
+            this.bg.style.display = &apos;none&apos;;
+        }
+    },
+    //4.定位：判断是否传参
+    //（1）若没有参数，即x值为undefined，则判断this.postion的值为center还是对象，设置x、y值
+    //（2）给元素设置样式
+    setPosition(x,y){
+        if(x===undefined){
+            // 如果元素没有添加(并显示)到页面，获取不到宽高
+            if(this.position === &apos;center&apos;){
+                x = (window.innerWidth - this.ele.offsetWidth)/2;
+                y = (window.innerHeight - this.ele.offsetHeight)/2;
+            }else if(typeof this.position === &apos;object&apos;){
+                x = this.position.x;
+                y = this.position.y;
+            }
+        }
+        this.ele.style.left = x + &apos;px&apos;;
+        this.ele.style.top = y + &apos;px&apos;;
+    },    
+    //5.拖拽
+    drag(){
+        var self = this;
+        var pop = self.ele;
+        pop.onmousedown = e=&gt;{
+            var ox = e.clientX - pop.offsetLeft;
+            var oy = e.clientY - pop.offsetTop;
+            // 只能在标题位置拖拽
+            if(oy&gt;pop.children[0].offsetHeight){
+                return;
+            }
+            document.onmousemove = function(evt){
+                var x = evt.clientX - ox;
+                var y = evt.clientY - oy;
+                self.setPosition(x,y);
+                evt.preventDefault();
+            }
+        }
+        document.onmouseup = function(){
+            document.onmousemove = null;
+        }
+    }
+</code></pre><h4 id="弹窗继承"><a href="#弹窗继承" class="headerlink" title="弹窗继承"></a>弹窗继承</h4><pre><code>//确认对话框
+function Confirm(options){
+    var defaults = {
+        width:300,
+        title:false,
+        content:&apos;你确定这个操作吗&apos;,
+        overlay:false,
+        confirm:function(){},
+        cancel:function(){}
+    }
+    var opt = Object.assign({},defaults,options);
+    //1.借用构造函数，拿到弹窗对象属性this.ele及this.position
+    Popover.call(this,opt);
+}
+// 2.继承Popover的方法
+Confirm.prototype = Object.create(Popover.prototype);
+//3.添加/重置方法
+Confirm.prototype.init = function(opt){
+    //3.1把你需要的部分复制下来
+    //3.2添加确认取消按钮
+    this.confirmBtn = document.createElement(&apos;button&apos;);
+    this.confirmBtn.className = &apos;btn-confirm&apos;;
+    this.confirmBtn.innerText = &apos;确认&apos;;
+
+    this.cancelBtn = document.createElement(&apos;button&apos;);
+    this.cancelBtn.className = &apos;btn-cancel&apos;;
+    this.cancelBtn.innerText = &apos;取消&apos;;
+    this.ele.appendChild(this.confirmBtn);
+    this.ele.appendChild(this.cancelBtn);
+
+    // 3.3点击确认取消按钮，执行方法
+    this.confirmBtn.onclick = ()=&gt;{
+        opt.confirm();
+        this.close();
+    }
+    this.cancelBtn.onclick = ()=&gt;{
+        opt.cancel();
+        this.close();
+    }
+</code></pre><h2 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">if(!Date.prototype.format)&#123;</span><br><span class="line">    Date.prototype.format = function(fmt)&#123;</span><br><span class="line">        //fmt格式：“YYYY-MM-DD hh:mm:ss”</span><br><span class="line">        var o = &#123;</span><br><span class="line">            &quot;M+&quot; : this.getMonth()+1,</span><br><span class="line">            &quot;D+&quot; : this.getDate(),</span><br><span class="line">            &quot;h+&quot; : this.getHours(),</span><br><span class="line">            &quot;m+&quot; : this.getMinutes(),</span><br><span class="line">            &quot;s+&quot; : this.getSeconds()</span><br><span class="line">        &#125;;</span><br><span class="line">        if(/(Y+)/.test(fmt))&#123;</span><br><span class="line">            var res = String(this.getFullYear()).substr(4-RegExp.$1.length);</span><br><span class="line">            fmt = fmt.replace(RegExp.$1,res);</span><br><span class="line">        &#125;</span><br><span class="line">        for(var str in o)&#123;</span><br><span class="line">            var reg = new RegExp(&apos;(&apos;+str+&apos;)&apos;);</span><br><span class="line">            if(reg.test(fmt))&#123;</span><br><span class="line">                var res = RegExp.$1.lenth&gt;1? (&quot;00&quot;+o[str]).substr(String(o[str]).length) : o[str];</span><br><span class="line">                //9===&gt;009.substr(1)</span><br><span class="line">                //0012===&gt;0012.substr(2)</span><br><span class="line">                fmt = fmt.replace(RegExp.$1,res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return fmt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;X98Y87Z65&quot;;</span><br><span class="line">// 三个数字部分加了小括号，表示子表达式</span><br><span class="line">var reg = /^X(\d+)Y(\d+)Z(\d+)$/;</span><br><span class="line">reg.test(str); // 此处使用exec()等其他正则表达式的匹配方法也可，下同</span><br><span class="line">document.writeln(RegExp.$1); // 98</span><br><span class="line">document.writeln(RegExp.$2); // 87</span><br><span class="line">document.writeln(RegExp.$3); // 65</span><br></pre></td></tr></table></figure>
+<h2 id="简化DOM节点操作"><a href="#简化DOM节点操作" class="headerlink" title="简化DOM节点操作"></a>简化DOM节点操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">* 面向对象的DOM操作</span><br><span class="line">* show()：显示</span><br><span class="line">* hide()：隐藏</span><br><span class="line">* on()：事件绑定</span><br><span class="line">* css()：获取/设置Css样式</span><br><span class="line">* addClass()：添加类名</span><br><span class="line">* removeClass()：移除类名</span><br><span class="line">* attr():获取/设置html属性值</span><br><span class="line">* html()：设置/获取html内容</span><br><span class="line">* text()：设置/获取文本内容</span><br></pre></td></tr></table></figure>
+<pre><code>class xJquery{
+    // 1.this.ele获取初始化
+    constructor(selector){
+        // 1.1若不是传入字符串，则可能传入DOM节点（判断选择器的标签名是否存在）或类数组Array。
+        // this.ele得到值，退出该函数
+        if(typeof selector != &apos;string&apos;){
+            if(selector.tagName){
+                this.ele = [selector];
+            }else{
+                this.ele = selector;
+            }
+            return;
+        }
+        //1.2若传入的是选择器
+        try{
+            this.ele  = document.querySelectorAll(selector);//Nodelist
+        }catch(error){
+            var selectorName = selector.slice(1);
+            if(/^#/.test(selector)){
+                //变成数组为的是后面的遍历
+                this.ele = [document.getElementById(selectorName)];//Array
+            }else if(/^\./.test(selector)){
+                try{
+                    this.ele = document.getElementsByClassName(selectorName);//HTMLCollection
+                }catch(err){
+                    this.ele = [];
+                    var res = document.getElementByTagName(&apos;*&apos;);
+                    for(var i=0;i&lt;res.length;i++){
+                        var className = res[i].className.split(&apos; &apos;);
+                        if(className.indexOf(selectorName)&gt;=0){
+                            this.ele.push(res[i]);
+                        }
+                    }
+                }
+            }else{
+                //getElementsByTagName
+                this.ele = document.getElementsByTagName(selector);
+            }
+        }
+    }
+    //2.显示隐藏方法
+    show(){
+        Array.prototype.forEach.call(this.ele,function(ele){
+            ele.style.display = &apos;block&apos;;
+        });
+        // 方便链式调用
+        return this;
+    }
+    hide(){
+        Array.prototype.forEach.call(this.ele,function(ele){
+            ele.style.display = &apos;none&apos;;
+        });
+        return this;
+    }
+    // 3.事件绑定
+    on(type,handler,isCapture){
+        Array.prototype.forEach.call(this.ele,function(ele){
+            try{
+                ele.addEventListener(type,handler,isCapture)
+            }catch(error){
+                try{
+                    ele.attachEvent(&apos;on&apos; + type,handler);
+                }catch(err){
+                    ele[&apos;on&apos;+type] = handler;
+                }
+            }
+        });
+        return this;
+    }
+    // 4.获取/设置Css样式
+    css(key,value){
+        // 若没有传入value，则代表获取值，只获取第一个元素的值
+        if(value === undefined){
+            if(window.getComputedStyle){
+                return getComputedStyle(this.ele[0])[key]
+            }else if(this.ele[0].currentStyle){
+                return this.ele[0].currentStyle[key]
+            }else{
+                return this.ele[0].style[key]
+            }
+        }
+        // 设置，则设置所有元素的值
+        Array.prototype.forEach.call(this.ele,function(ele){
+            ele.style[key] = value;
+        })
+        return this;
+    }
+    // 5.给所有元素添加类名
+    addClass(name){
+        Array.prototype.forEach.call(this.ele,function(ele){
+            try{
+                ele.classList.add(name);
+            }catch(error){
+                var className = ele.className.split(&apos; &apos;);
+                if(className.indexOf(name) == -1){
+                    className.push(name);
+                }
+                ele.className = className.join(&apos; &apos;);
+            }
+        })
+    }
+    // 6.移除所有元素的该类名
+    removeClass(name){
+        Array.prototype.forEach.call(this.ele,function(ele){
+            ele.classList.remove(name)
+        });
+    }
+    // 7.设置/获取html内容
+    html(html){
+        // 获取第一个元素的html内容
+        if(html === undefined){
+            return this.ele[0].innerHTML
+        }
+        // 设置所有元素的html内容
+        Array.prototype.forEach.call(this.ele,function(ele){
+            ele.innerHTML = html;
+        });
+        return this;
+    }
+    // 设置/获取文本内容
+    text(txt){}
+}
+//执行$(selector)，返回实例对象
+let $ = function(selector){
+    return new xJquery(selector);
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+            
+        
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/19/JS基础/16.SVN/" rel="next" title="js简介(版本管理之SVN)">
+                <i class="fa fa-chevron-left"></i> js简介(版本管理之SVN)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/19/JS基础/18.JQ/" rel="prev" title="js简介(jQuery基础应用)">
+                js简介(jQuery基础应用) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="Admin">
+            
+              <p class="site-author-name" itemprop="name">Admin</p>
+              <p class="site-description motion-element" itemprop="description">我有一壶酒足以慰风尘，尽倾江海里，共饮天下人!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/462937186" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#弹窗插件"><span class="nav-number">1.</span> <span class="nav-text">弹窗插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#弹窗继承"><span class="nav-number">1.0.1.</span> <span class="nav-text">弹窗继承</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#时间格式化"><span class="nav-number">2.</span> <span class="nav-text">时间格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简化DOM节点操作"><span class="nav-number">3.</span> <span class="nav-text">简化DOM节点操作</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Admin</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

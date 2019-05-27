@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTML基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、边框属性1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];​                    * x-offset 水平偏移，往右为正值 * y-offset 垂直偏移，往下为正值 * blur 模糊区域 * spread 扩展区域 * color 颜色 * inset 往元素内部移动。若是不设置，则往元素外部">
+<meta name="keywords" content="HTML基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="边框属性、渐变、过渡、2d变换">
+<meta property="og:url" content="https://462937186.github.io/2019/05/18/HTML/12.边框属性、渐变、过渡、2d变换/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="一、边框属性1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];​                    * x-offset 水平偏移，往右为正值 * y-offset 垂直偏移，往下为正值 * blur 模糊区域 * spread 扩展区域 * color 颜色 * inset 往元素内部移动。若是不设置，则往元素外部">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/translate-x-y.png">
+<meta property="og:image" content="e:/笔记/rotate.png">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/skew-x-y.png">
+<meta property="og:updated_time" content="2019-05-27T13:33:53.593Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="边框属性、渐变、过渡、2d变换">
+<meta name="twitter:description" content="一、边框属性1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];​                    * x-offset 水平偏移，往右为正值 * y-offset 垂直偏移，往下为正值 * blur 模糊区域 * spread 扩展区域 * color 颜色 * inset 往元素内部移动。若是不设置，则往元素外部">
+<meta name="twitter:image" content="http://www.w3cplus.com/sites/default/files/translate-x-y.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://462937186.github.io/2019/05/18/HTML/12.边框属性、渐变、过渡、2d变换/">
+
+
+
+
+
+  <title>边框属性、渐变、过渡、2d变换 | 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://462937186.github.io/2019/05/18/HTML/12.边框属性、渐变、过渡、2d变换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Admin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">边框属性、渐变、过渡、2d变换</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-18T11:07:44+08:00">
+                2019-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、边框属性"><a href="#一、边框属性" class="headerlink" title="一、边框属性"></a>一、边框属性</h1><h2 id="1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…"><a href="#1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…" class="headerlink" title="1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];"></a>1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];</h2><p>​                    * x-offset 水平偏移，往右为正值</p>
+<pre><code>* y-offset 垂直偏移，往下为正值
+* blur 模糊区域
+* spread 扩展区域
+* color 颜色
+* inset 往元素内部移动。若是不设置，则往元素外部添加边框阴影
+</code></pre><h2 id="2-边框图片-border-image"><a href="#2-边框图片-border-image" class="headerlink" title="2.边框图片 border-image"></a>2.边框图片 border-image</h2><p>​                * 边框图片引入border-image-source:url()</p>
+<pre><code>* 边框图片的裁剪 border-image-slice 遵循上右下左原则(不带单位)
+* 边框图片的宽度 border-image-width 若省略该值，默认就是边框宽度
+* 边框图片的重复 border-image-repeat
+    *属性值：stretch默认拉伸    repeat重复  round压缩重复
+* 边框图片向外延伸 border-image-outset 不能取负数
+</code></pre><h2 id="3-边框圆角-border-radius"><a href="#3-边框圆角-border-radius" class="headerlink" title="3.边框圆角 border-radius"></a>3.边框圆角 border-radius</h2><p>​                某个角的边框圆角：border-垂直方位-水平方位-radius:水平半径 垂直半径;<br>                border-radius:水平半径/垂直半径;<br>                    水平或垂直半径遵循（从左上角开始）顺时针原则,缺省的值找对角</p>
+<h1 id="二-渐变"><a href="#二-渐变" class="headerlink" title="二.渐变"></a>二.渐变</h1><h2 id="（一）线性渐变-linear-gradient"><a href="#（一）线性渐变-linear-gradient" class="headerlink" title="（一）线性渐变  linear-gradient"></a>（一）线性渐变  linear-gradient</h2><p>​                1.gradient(linear,起点坐标,终点坐标,from(color),to(color))</p>
+<pre><code>    * 坐标写法：水平坐标 垂直坐标; (只能用百分比)
+2.gradient(linear,起点坐标,终点坐标,color-stop(渐变开始的位置,color)[,...])
+    * 渐变开始的位置取值为0-1
+3.linear-gradient(方向||角度,颜色 渐变开始的位置)
+    * 方向：top bottom left right
+    * 角度单位:deg
+    * 渐变开始的位置:0-100%
+    * 老版本（加前缀的写法）+新版本 = 90deg
+</code></pre><h2 id="二-径向渐变radial-gradient"><a href="#二-径向渐变radial-gradient" class="headerlink" title="(二)径向渐变radial-gradient"></a>(二)径向渐变radial-gradient</h2><p>​                1. radial-gradient(圆心，颜色 开始渐变的位置[,….])</p>
+<pre><code>2. radial-gradient(圆心,size||shape,颜色 开始渐变的位置[,....])
+    * size大小：
+        closest-side：最近边； 
+        farthest-side：最远边；
+        closest-corner：最近角；
+        farthest-corner：最远角（默认值）
+    * shape形状：
+        ellipse椭圆形(默认)，circle表示圆形。
+</code></pre><h2 id="三-重复渐变-repeating-linear（radial）-gradient-用法同上"><a href="#三-重复渐变-repeating-linear（radial）-gradient-用法同上" class="headerlink" title="(三) 重复渐变 repeating-linear（radial）-gradient 用法同上"></a>(三) 重复渐变 repeating-linear（radial）-gradient 用法同上</h2><h1 id="浏览器的私有前缀"><a href="#浏览器的私有前缀" class="headerlink" title="浏览器的私有前缀"></a>浏览器的私有前缀</h1><table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>内核</th>
+<th>私有前缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chrome、safari</td>
+<td>Webkit</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>Presto</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>ie</td>
+<td>Trident</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>Gecko</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>chrome、opera</td>
+<td>blink</td>
+</tr>
+</tbody>
+</table>
+<h1 id="过渡-transition"><a href="#过渡-transition" class="headerlink" title="过渡 transition"></a>过渡 transition</h1><p>​          </p>
+<ol>
+<li><p>需要过渡的属性  transition-property：</p>
+</li>
+<li><p>过渡的时间 transition-duration：</p>
+</li>
+<li><p>过渡的形式 transition-timing-function：</p>
+<pre><code>*linear 匀速    ease慢速进入慢速离开
+   *ease-in 慢速进入   ease-out慢速离开
+   *ease-in-out慢速进入慢速离开
+</code></pre></li>
+<li><p>过渡的延迟 transition-delay：   </p>
+<pre><code>**总属性 transition: 1 2 3 4;(1跟2不可以省略) **
+  多个属性同时过渡可以用**all**。            
+</code></pre></li>
+</ol>
+<h2 id="四-2d变换transform-gt-这是一种状态"><a href="#四-2d变换transform-gt-这是一种状态" class="headerlink" title="四.2d变换transform ==&gt;这是一种状态"></a>四.2d变换transform ==&gt;这是一种状态</h2><p>​    <strong>写变换时，先写移动，再写旋转。</strong></p>
+<h2 id="1-移动变换-transform-translate-水平方向-右-垂直方向-下"><a href="#1-移动变换-transform-translate-水平方向-右-垂直方向-下" class="headerlink" title="1. 移动变换 transform:translate(水平方向(右),垂直方向(下))"></a>1. 移动变换 transform:translate(水平方向(右),垂直方向(下))</h2><p>​                改变某个方向 transform:translateX(水平方向)<br>                               transform:translateY(垂直方向)<br>                *取值取百分比的话，指的是参考自己的宽高   </p>
+<p>transform:translate(100px,20px):                                   </p>
+<p>   <img src="http://www.w3cplus.com/sites/default/files/translate-x-y.png" alt="img">               </p>
+<h2 id="2-缩放变换transform-scale-x-y"><a href="#2-缩放变换transform-scale-x-y" class="headerlink" title="2.缩放变换transform:scale(x,y)"></a>2.缩放变换transform:scale(x,y)</h2><p>​                * 取值为缩放比（倍数），基准点为元素中心。</p>
+<pre><code>* transform:scaleX(x)    transform:scaleY(y)
+</code></pre><h2 id="3-旋转变换-transform-rotate-deg"><a href="#3-旋转变换-transform-rotate-deg" class="headerlink" title="3.旋转变换 transform:rotate(deg)"></a>3.旋转变换 <strong>transform:rotate(deg</strong>)</h2><p>​                *顺时针旋转为正值，基准点在元素中心如：transform:rotate(30deg): </p>
+<p><img src="E:\笔记\rotate.png" alt="img"> </p>
+<h2 id="4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度"><a href="#4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度" class="headerlink" title="4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)"></a>4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)</h2><p>​                *transform:skewX(x轴旋转的角度)</p>
+<p>​    transform:skew(30deg,10deg): </p>
+<p><img src="http://www.w3cplus.com/sites/default/files/skew-x-y.png" alt="img"> </p>
+<h2 id="5-改变元素变换的基准点-transform-origin"><a href="#5-改变元素变换的基准点-transform-origin" class="headerlink" title="5.改变元素变换的基准点 transform-origin"></a>5.改变元素变换的基准点 transform-origin</h2><p>​                    取值：数值 百分比 方位</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+            
+        
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html基础/" rel="tag"># HTML基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/18/HTML/14.弹性盒布局、媒体查询/" rel="next" title="弹性盒布局、媒体查询">
+                <i class="fa fa-chevron-left"></i> 弹性盒布局、媒体查询
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/18/HTML/11.css选择器/" rel="prev" title="css选择器">
+                css选择器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="Admin">
+            
+              <p class="site-author-name" itemprop="name">Admin</p>
+              <p class="site-description motion-element" itemprop="description">我有一壶酒足以慰风尘，尽倾江海里，共饮天下人!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/462937186" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、边框属性"><span class="nav-number">1.</span> <span class="nav-text">一、边框属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…"><span class="nav-number">1.1.</span> <span class="nav-text">1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-边框图片-border-image"><span class="nav-number">1.2.</span> <span class="nav-text">2.边框图片 border-image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-边框圆角-border-radius"><span class="nav-number">1.3.</span> <span class="nav-text">3.边框圆角 border-radius</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-渐变"><span class="nav-number">2.</span> <span class="nav-text">二.渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）线性渐变-linear-gradient"><span class="nav-number">2.1.</span> <span class="nav-text">（一）线性渐变  linear-gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-径向渐变radial-gradient"><span class="nav-number">2.2.</span> <span class="nav-text">(二)径向渐变radial-gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-重复渐变-repeating-linear（radial）-gradient-用法同上"><span class="nav-number">2.3.</span> <span class="nav-text">(三) 重复渐变 repeating-linear（radial）-gradient 用法同上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器的私有前缀"><span class="nav-number">3.</span> <span class="nav-text">浏览器的私有前缀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过渡-transition"><span class="nav-number">4.</span> <span class="nav-text">过渡 transition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四-2d变换transform-gt-这是一种状态"><span class="nav-number">4.1.</span> <span class="nav-text">四.2d变换transform ==&gt;这是一种状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-移动变换-transform-translate-水平方向-右-垂直方向-下"><span class="nav-number">4.2.</span> <span class="nav-text">1. 移动变换 transform:translate(水平方向(右),垂直方向(下))</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-缩放变换transform-scale-x-y"><span class="nav-number">4.3.</span> <span class="nav-text">2.缩放变换transform:scale(x,y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-旋转变换-transform-rotate-deg"><span class="nav-number">4.4.</span> <span class="nav-text">3.旋转变换 transform:rotate(deg)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度"><span class="nav-number">4.5.</span> <span class="nav-text">4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-改变元素变换的基准点-transform-origin"><span class="nav-number">4.6.</span> <span class="nav-text">5.改变元素变换的基准点 transform-origin</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Admin</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

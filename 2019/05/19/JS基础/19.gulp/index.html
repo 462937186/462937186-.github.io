@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="gulpgulp是当下最流行的自动化工具 ，可以自动化完成我们开发过程中大量的重复工作。如：  编译：    less-&amp;gt;css    sass-&amp;gt;css    coffeescript-&amp;gt;js    es6-&amp;gt;es5(兼容)合并: css, js压缩 ：css, js, html优化：图片优化   官网：http://gulpjs.com/  中文网：http://www">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js简介(gulp基础)">
+<meta property="og:url" content="https://462937186.github.io/2019/05/19/JS基础/19.gulp/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="gulpgulp是当下最流行的自动化工具 ，可以自动化完成我们开发过程中大量的重复工作。如：  编译：    less-&amp;gt;css    sass-&amp;gt;css    coffeescript-&amp;gt;js    es6-&amp;gt;es5(兼容)合并: css, js压缩 ：css, js, html优化：图片优化   官网：http://gulpjs.com/  中文网：http://www">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-19T04:34:44.300Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js简介(gulp基础)">
+<meta name="twitter:description" content="gulpgulp是当下最流行的自动化工具 ，可以自动化完成我们开发过程中大量的重复工作。如：  编译：    less-&amp;gt;css    sass-&amp;gt;css    coffeescript-&amp;gt;js    es6-&amp;gt;es5(兼容)合并: css, js压缩 ：css, js, html优化：图片优化   官网：http://gulpjs.com/  中文网：http://www">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://462937186.github.io/2019/05/19/JS基础/19.gulp/">
+
+
+
+
+
+  <title>js简介(gulp基础) | 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://462937186.github.io/2019/05/19/JS基础/19.gulp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Admin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js简介(gulp基础)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T12:23:54+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js基础/" itemprop="url" rel="index">
+                    <span itemprop="name">JS基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h1><p>gulp是当下最流行的自动化工具 ，可以自动化完成我们开发过程中大量的重复工作。如：</p>
+<blockquote>
+<p>编译：<br>    less-&gt;css<br>    sass-&gt;css<br>    coffeescript-&gt;js<br>    es6-&gt;es5(兼容)<br>合并: css, js<br>压缩 ：css, js, html<br>优化：图片优化</p>
+</blockquote>
+<ul>
+<li>官网：<a href="http://gulpjs.com/" target="_blank" rel="noopener">http://gulpjs.com/</a> </li>
+<li>中文网：<a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/</a> </li>
+</ul>
+<h3 id="gulp的安装及运行"><a href="#gulp的安装及运行" class="headerlink" title="gulp的安装及运行"></a>gulp的安装及运行</h3><h5 id="1-全局安装-gulp："><a href="#1-全局安装-gulp：" class="headerlink" title="1.全局安装 gulp："></a>1.全局安装 gulp：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global gulp    //全局安装gulp目的是为了通过它执行gulp任务</span><br></pre></td></tr></table></figure>
+<h5 id="2-本地安装gulp："><a href="#2-本地安装gulp：" class="headerlink" title="2.本地安装gulp："></a>2.本地安装gulp：</h5><p>作为项目的开发依赖（devDependencies）安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp //本地安装gulp是为了调用gulp插件的功能</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–save-dev 保存配置信息至 package.json 的 devDependencies 节点</li>
+<li>这步操作前先新建package.json文件（npm init）</li>
+<li>这步完成后就可以安装各种gulp插件了</li>
+</ul>
+<h5 id="3-安装gulp插件"><a href="#3-安装gulp插件" class="headerlink" title="3.安装gulp插件"></a>3.安装gulp插件</h5><p>大部分插件都可以在<a href="http://www.npmjs.com找到，任何插件的使用都要经历以下三步：" target="_blank" rel="noopener">http://www.npmjs.com找到，任何插件的使用都要经历以下三步：</a></p>
+<blockquote>
+<p>安装插件：npm<br>npm install  gulp-htmlmin</p>
+</blockquote>
+<p>PS：可一次性安装多个插件，插件间用空格隔开</p>
+<h6 id="常用gulp插件"><a href="#常用gulp插件" class="headerlink" title="常用gulp插件"></a>常用gulp插件</h6><blockquote>
+<p>html压缩：gulp-htmlmin</p>
+<p>css压缩：gulp-clean-css</p>
+<p>js压缩：gulp-uglify</p>
+<p>合并文件：gulp-concat</p>
+<p>文件重命名：gulp-rename</p>
+<p>编译Sass: gulp-sass</p>
+<p>编译 Less：gulp-less</p>
+</blockquote>
+<h6 id="其他常用插件"><a href="#其他常用插件" class="headerlink" title="其他常用插件"></a>其他常用插件</h6><blockquote>
+<ul>
+<li>浏览器同步测试：browser-sync</li>
+<li>创建node服务器：http-server </li>
+</ul>
+<p>npm install -g http-server</p>
+</blockquote>
+<h5 id="4-创建gulpfile-js文件（gulp任务）"><a href="#4-创建gulpfile-js文件（gulp任务）" class="headerlink" title="4.创建gulpfile.js文件（gulp任务）"></a>4.创建gulpfile.js文件（gulp任务）</h5><ul>
+<li>！！！项目根目录下 创建</li>
+<li>gulp项目的配置文件，内容如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">gulp.task(&apos;任务名&apos;, function() &#123;</span><br><span class="line">  // 将你的默认的任务代码放在这</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="5-运行-gulp："><a href="#5-运行-gulp：" class="headerlink" title="5.运行 gulp："></a>5.运行 gulp：</h5><p>在命令行执行以下命名，如果不写任务名称，则自动运行default任务（如果有）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp &lt;任务名称&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="演示：编译scss文件为css文件"><a href="#演示：编译scss文件为css文件" class="headerlink" title="演示：编译scss文件为css文件"></a>演示：编译scss文件为css文件</h6><pre><code>//1.安装gulp-sass插件
+//2.gulpfile.js:
+//(1)引包：require()：返回对象或者函数
+let gulp = require(&apos;gulp&apos;);//得到对象
+let sass = require(&apos;gulp-sass&apos;);//得到函数
+//(2)创建任务
+gulp.task(&apos;compileSass&apos;,function(){
+    // （3）执行gulp工作流程
+    gulp.src(&apos;./src/sass/*.scss&apos;) // 返回文件流（液体，文件在内存中的状态）
+    .pipe(sass({outputStyle:&apos;expanded&apos;}).on(&apos;error&apos;, sass.logError))
+    .pipe(gulp.dest(&apos;./src/css/&apos;))
+});
+
+outputStyle参数（gulp-sass）：
+    nested(默认）
+    expanded：展开
+    compact：单行
+    compressed：压缩
+on(&apos;error&apos;, sass.logError)：忽略错误，继续编译
+</code></pre><h3 id="gulp工作流程"><a href="#gulp工作流程" class="headerlink" title="gulp工作流程"></a>gulp工作流程</h3><ol>
+<li>选通过gulp.src(globs) 方法获取到想要处理的文件，并返回文件流</li>
+<li>然后文件流通过 pipe 方法导入到 gulp 的插件中</li>
+<li>经过插件处理后的文件流，再通过pipe方法导入到 gulp.dest() 方法中</li>
+<li>最后通过gulp.dest() 方法把流中的内容写入到文件中</li>
+</ol>
+<blockquote>
+<p>PS：文件流=&gt;文件在内存中的状态</p>
+</blockquote>
+<p>   5.监听文件修改，并执行相应任务gulp.watch(glob,[‘任务名’])</p>
+<h6 id="演示：监听scss文件修改，自动编译"><a href="#演示：监听scss文件修改，自动编译" class="headerlink" title="演示：监听scss文件修改，自动编译"></a>演示：监听scss文件修改，自动编译</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;jtSass&apos;,function()&#123;</span><br><span class="line">	gulp.watch(&apos;./src/sass/*.scss&apos;,[&apos;compileSass&apos;])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="globs语法"><a href="#globs语法" class="headerlink" title="globs语法"></a>globs语法</h3><p>globs需要处理的源文件匹配符路径，语法如下</p>
+<ul>
+<li><p>匹配单个文件：<br><code>gulp.src(&#39;src/js/index.js&#39;)</code></p>
+</li>
+<li><p>匹配多个文件：<br><code>gulp.src([&#39;src/js/index.js&#39;,&#39;src/js/detail.js&#39;]) //多个文件以数组形式传入</code></p>
+</li>
+<li><p>匹配所有文件<br><code>gulp.src(&#39;src/js/*.js&#39;)</code></p>
+</li>
+<li><p>匹配符：<br><code>!</code>：排除文件，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([&quot;./src/sass/**/*.scss&quot;,&quot;!./src/sass/var.scss&quot;])</span><br></pre></td></tr></table></figure>
+<p><code>*</code>：匹配所有文件，<br><code>**</code>：匹配0个或多个子文件夹，<br><code>{}</code>：匹配多个属性</p>
+</li>
+</ul>
+<p>备注：若想实现某个文件不受匹配控制，在文件名前面加_</p>
+<h1 id="Sass"><a href="#Sass" class="headerlink" title="Sass"></a>Sass</h1><p>SASS是一个成熟、稳定、强大的 CSS 扩展语言解析器，提供变量、嵌套、混合、继承等特性，大大节省了设计者的时间，使得CSS的开发变得简单和可维护 .</p>
+<h6 id="了解工具：css转scss"><a href="#了解工具：css转scss" class="headerlink" title="了解工具：css转scss"></a>了解工具：css转scss</h6><h3 id="嵌套-Nesting"><a href="#嵌套-Nesting" class="headerlink" title="嵌套(Nesting)"></a>嵌套(Nesting)</h3><p>css中重复写选择器是非常恼人的。如果要写一大串指向页面中同一块的样式时，需要一遍又一遍地写同一个ID。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#content article h1 &#123; color: #333 &#125;</span><br><span class="line">#content article p &#123; margin-bottom: 1.4em &#125;</span><br><span class="line">#content aside &#123; background-color: #EEE &#125;</span><br></pre></td></tr></table></figure>
+<p>sass写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#content &#123;</span><br><span class="line">  article &#123;</span><br><span class="line">    h1 &#123; color: #333 &#125;</span><br><span class="line">    p &#123; margin-bottom: 1.4em &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  aside &#123; background-color: #EEE &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在嵌套中用&amp;表示父元素选择器</li>
+</ul>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  color: #333; // 单行注释：不会出现在生成的css文件中</span><br><span class="line">  padding: 0; /* 多行注释：内容会出现在生成的css文件中 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>sass的变量必须是$开头，后面紧跟变量名，而变量值和变量名之间就需要使用冒号(:)分隔开（就像CSS属性设置一样）。</p>
+<h6 id="演示：变量写法"><a href="#演示：变量写法" class="headerlink" title="演示：变量写法"></a>演示：变量写法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主颜色</span><br><span class="line">$mainColor:#5b8c58;</span><br><span class="line">// 高亮颜色</span><br><span class="line">$highlight:#fc0;</span><br><span class="line">// 内边距</span><br><span class="line">$padding:5px 10px;</span><br><span class="line">//使用变量</span><br><span class="line">a:hover&#123;color:$mainColor;&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a>全局变量与局部变量</h5><p>定义在任何选择器之外的变量被认为是全局变量，定义在选择器内的变量称之为局部变量。</p>
+<p>但启用了global后，即使写在局部也能覆盖全局变量（sass 3.4版本后可用）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$color:#fff !global;</span><br></pre></td></tr></table></figure>
+<h5 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h5><p>sass的默认变量仅需要在值后面加上!default即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$fontSize:12 !default;</span><br></pre></td></tr></table></figure>
+<h5 id="变量特殊用法"><a href="#变量特殊用法" class="headerlink" title="变量特殊用法"></a>变量特殊用法</h5><p>一般我们定义的变量都为属性值，可直接使用，但是如果变量作为属性或在某些特殊情况下等则必须要以#{$variables}形式使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$direction:top !default;</span><br><span class="line">//应用于class和属性</span><br><span class="line">.border-#&#123;$direction&#125;&#123;</span><br><span class="line">  border-#&#123;$direction&#125;:1px solid #ccc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="多值变量"><a href="#多值变量" class="headerlink" title="多值变量"></a>多值变量</h5><p>多值变量分为list类型和map类型，简单来说list类型有点像js中的数组，而map类型有点像js中的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//list类型</span><br><span class="line">$pd: 5px 10px 20px 30px;</span><br><span class="line">//使用</span><br><span class="line">.content&#123;padding:$pd;&#125;</span><br><span class="line">.btop&#123;border-top:nth($pd,1);&#125;</span><br><span class="line"></span><br><span class="line">//map类型</span><br><span class="line">$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);</span><br><span class="line">//使用</span><br><span class="line">h1&#123;map-get($headings,h1)&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>sass具有运算的特性，可以对数值型的Value(如：数字、颜色、变量等)进行加减乘除四则运算。请注意运算符前后请留一个空格，不然会出错。 </p>
+<h3 id="条件判断及循环"><a href="#条件判断及循环" class="headerlink" title="条件判断及循环"></a>条件判断及循环</h3><h5 id="if判断"><a href="#if判断" class="headerlink" title="@if判断"></a>@if判断</h5><p>@if可一个条件单独使用，也可以和@else结合多条件使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@if $type == ocean &#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125; @else if $type == matador &#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125; @else &#123;</span><br><span class="line">    color: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="for循环"><a href="#for循环" class="headerlink" title="@for循环"></a>@for循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@for $var from &lt;start&gt; through &lt;end&gt;（包含end值）</span><br><span class="line">@for $var from &lt;start&gt; to &lt;end&gt;（不包含end值）</span><br></pre></td></tr></table></figure>
+<h6 id="演示-for循环"><a href="#演示-for循环" class="headerlink" title="演示:for循环"></a>演示:for循环</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@for $i from 1 through 6&#123;</span><br><span class="line">	h#&#123;$i&#125;&#123;</span><br><span class="line">		font-size:36px/($i/2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>Sass中的数字函数提要针对数字方面提供一系列的函数功能：</p>
+<h5 id="常用函数："><a href="#常用函数：" class="headerlink" title="常用函数："></a>常用函数：</h5><blockquote>
+<p>percentage($value)：将一个不带单位的数转换成百分比值；<br>round($value)：将数值四舍五入，转换成一个最接近的整数；<br>ceil($value)：将大于自己的小数转换成下一位整数；<br>floor($value)：将一个数去除他的小数部分；<br>abs($value)：返回一个数的绝对值；<br>min($numbers…)：找出几个数值之间的最小值；<br>max($numbers…)：找出几个数值之间的最大值。<br>lighten($color,$num) $color颜色值，$num:0-100<br>darken($color,$num) $num:0-100</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">演示：函数的使用</span><br><span class="line">background-color:lighter($mainColor,percentage($i/10))</span><br></pre></td></tr></table></figure>
+<h5 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h5><p>格式：@fuction 函数名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$oneWidth: 10px;  </span><br><span class="line">$twoWidth: 40px;  </span><br><span class="line">@function widthFn($n) &#123;  </span><br><span class="line">  @return $n * $twoWidth + ($n - 1) * $oneWidth;  </span><br><span class="line">&#125;  </span><br><span class="line">.leng &#123;   </span><br><span class="line">    width: widthFn($n : 5);  //！！传参格式注意</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>使用选择器的继承，要使用关键词@extend</p>
+<ul>
+<li>继承一般样式<br>@extend h1</li>
+<li>占位选择器%</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// % 无实际样式，不会被编译出来</span><br><span class="line">%pop&#123;</span><br><span class="line">	width:600px;height:300px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">	width:800px;</span><br><span class="line">	color:#ccc;</span><br><span class="line">	background-color:#000;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">	@extend .box;</span><br><span class="line">	margin:10px;</span><br><span class="line">&#125;</span><br><span class="line">.login&#123;</span><br><span class="line">	@extend %pop;</span><br><span class="line">	background-color:$mainColor*2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导入-import"><a href="#导入-import" class="headerlink" title="导入 @import"></a>导入 @import</h3><p>sass中导入其他sass文件，最后编译为一个css文件，优于纯css的@import</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &apos;reset&apos;;</span><br></pre></td></tr></table></figure>
+<h6 id="演示：同时编译多个scss文件为css，演示-文件名不会编译效果。演示bootstrap源码"><a href="#演示：同时编译多个scss文件为css，演示-文件名不会编译效果。演示bootstrap源码" class="headerlink" title="演示：同时编译多个scss文件为css，演示_文件名不会编译效果。演示bootstrap源码"></a>演示：同时编译多个scss文件为css，演示_文件名不会编译效果。演示bootstrap源码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//var.scss:</span><br><span class="line">$mainColor: #58bc58;</span><br><span class="line">$container: 800px;</span><br><span class="line">$padding:5px 10px 15px 20px;</span><br><span class="line">//list.scss:</span><br><span class="line">.box&#123;</span><br><span class="line">	width:$container;</span><br><span class="line">	color:$mainColor;</span><br><span class="line">	padding:$padding;</span><br><span class="line">	background-color:#fff;</span><br><span class="line">	border:1px soild $mainColor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="gulp插件的使用"><a href="#gulp插件的使用" class="headerlink" title="gulp插件的使用"></a>gulp插件的使用</h1><h3 id="js压缩及合并、重命名"><a href="#js压缩及合并、重命名" class="headerlink" title="js压缩及合并、重命名"></a>js压缩及合并、重命名</h3><pre><code>// js压缩
+let uglify = require(&apos;gulp-uglify&apos;);
+let pump = require(&apos;pump&apos;);
+let concat = require(&apos;gulp-concat&apos;);
+let rename = require(&apos;gulp-rename&apos;);
+gulp.task(&apos;compressJs&apos;,function(cb){
+    pump([
+        gulp.src(&apos;./src/js/*.js&apos;),
+        // 合并
+        concat(&apos;index.js&apos;),
+        gulp.dest(&apos;./dist/js/&apos;),
+        // 压缩
+        uglify(),
+        // 重命名
+        rename({
+            suffix:&apos;.min&apos;
+        }),
+        gulp.dest(&apos;dist/js/&apos;)
+    ],cb );
+});    
+</code></pre><h3 id="browser-sync"><a href="#browser-sync" class="headerlink" title="browser-sync"></a>browser-sync</h3><pre><code>var browserSync = require(&quot;browser-sync&quot;);
+// 静态服务器
+gulp.task(&apos;server&apos;,()=&gt;{
+    browserSync({
+        // 服务器路径
+        // server:&apos;./src/&apos;,
+        // 代理服务器，必须绑定到当前服务器路径一致
+        proxy:&apos;http://localhost:1806&apos;,
+        // 端口
+        port:666,
+        // 监听文件修改，自动刷新
+        files:[&apos;./src/**/*.html&apos;,&apos;./src/css/*.css&apos;,&apos;./src/api/*.php&apos;]
+    });
+    // 监听sass文件修改，并自动编译
+    gulp.watch(&apos;./src/sass/*.scss&apos;,[&apos;compileSass&apos;])    
+}）
+//监听的文件修改，页面html对应修改。通过brower-sync服务只能看到页面修改
+</code></pre><p>静态服务器：开启服务，不能识别后端语言.</p>
+<p>wampserver:php解析器</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+            
+        
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/19/JS基础/18.JQ/" rel="next" title="js简介(jQuery基础应用)">
+                <i class="fa fa-chevron-left"></i> js简介(jQuery基础应用)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/19/JS基础/19.Sass/" rel="prev" title="js简介(Sass基础)">
+                js简介(Sass基础) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="Admin">
+            
+              <p class="site-author-name" itemprop="name">Admin</p>
+              <p class="site-description motion-element" itemprop="description">我有一壶酒足以慰风尘，尽倾江海里，共饮天下人!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/462937186" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp"><span class="nav-number">1.</span> <span class="nav-text">gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp的安装及运行"><span class="nav-number">1.0.1.</span> <span class="nav-text">gulp的安装及运行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-全局安装-gulp："><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">1.全局安装 gulp：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-本地安装gulp："><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">2.本地安装gulp：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-安装gulp插件"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">3.安装gulp插件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#常用gulp插件"><span class="nav-number">1.0.1.0.3.1.</span> <span class="nav-text">常用gulp插件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#其他常用插件"><span class="nav-number">1.0.1.0.3.2.</span> <span class="nav-text">其他常用插件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-创建gulpfile-js文件（gulp任务）"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">4.创建gulpfile.js文件（gulp任务）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-运行-gulp："><span class="nav-number">1.0.1.0.5.</span> <span class="nav-text">5.运行 gulp：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：编译scss文件为css文件"><span class="nav-number">1.0.1.0.5.1.</span> <span class="nav-text">演示：编译scss文件为css文件</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp工作流程"><span class="nav-number">1.0.2.</span> <span class="nav-text">gulp工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：监听scss文件修改，自动编译"><span class="nav-number">1.0.2.0.0.1.</span> <span class="nav-text">演示：监听scss文件修改，自动编译</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#globs语法"><span class="nav-number">1.0.3.</span> <span class="nav-text">globs语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass"><span class="nav-number">2.</span> <span class="nav-text">Sass</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#了解工具：css转scss"><span class="nav-number">2.0.0.0.0.1.</span> <span class="nav-text">了解工具：css转scss</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套-Nesting"><span class="nav-number">2.0.1.</span> <span class="nav-text">嵌套(Nesting)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">2.0.2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.0.3.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：变量写法"><span class="nav-number">2.0.3.0.0.1.</span> <span class="nav-text">演示：变量写法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全局变量与局部变量"><span class="nav-number">2.0.3.0.1.</span> <span class="nav-text">全局变量与局部变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#默认变量"><span class="nav-number">2.0.3.0.2.</span> <span class="nav-text">默认变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量特殊用法"><span class="nav-number">2.0.3.0.3.</span> <span class="nav-text">变量特殊用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多值变量"><span class="nav-number">2.0.3.0.4.</span> <span class="nav-text">多值变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算"><span class="nav-number">2.0.4.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件判断及循环"><span class="nav-number">2.0.5.</span> <span class="nav-text">条件判断及循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#if判断"><span class="nav-number">2.0.5.0.1.</span> <span class="nav-text">@if判断</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">2.0.5.0.2.</span> <span class="nav-text">@for循环</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示-for循环"><span class="nav-number">2.0.5.0.2.1.</span> <span class="nav-text">演示:for循环</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">2.0.6.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用函数："><span class="nav-number">2.0.6.0.1.</span> <span class="nav-text">常用函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义函数"><span class="nav-number">2.0.6.0.2.</span> <span class="nav-text">自定义函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">2.0.7.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入-import"><span class="nav-number">2.0.8.</span> <span class="nav-text">导入 @import</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：同时编译多个scss文件为css，演示-文件名不会编译效果。演示bootstrap源码"><span class="nav-number">2.0.8.0.0.1.</span> <span class="nav-text">演示：同时编译多个scss文件为css，演示_文件名不会编译效果。演示bootstrap源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp插件的使用"><span class="nav-number">3.</span> <span class="nav-text">gulp插件的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js压缩及合并、重命名"><span class="nav-number">3.0.1.</span> <span class="nav-text">js压缩及合并、重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#browser-sync"><span class="nav-number">3.0.2.</span> <span class="nav-text">browser-sync</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Admin</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

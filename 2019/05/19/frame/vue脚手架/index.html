@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vue,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Vue-cli 3.0版本与2.X版本比较3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板) 2.X版本创建的目录       (创建命令 vue init webpack my-project) 二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-cli版本对比整理">
+<meta property="og:url" content="https://462937186.github.io/2019/05/19/frame/vue脚手架/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="Vue-cli 3.0版本与2.X版本比较3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板) 2.X版本创建的目录       (创建命令 vue init webpack my-project) 二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli2.x.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-1.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-2.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-3.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-4.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-5.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-6.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-7.png?raw=true">
+<meta property="og:updated_time" content="2019-05-19T06:41:55.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue-cli版本对比整理">
+<meta name="twitter:description" content="Vue-cli 3.0版本与2.X版本比较3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板) 2.X版本创建的目录       (创建命令 vue init webpack my-project) 二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录">
+<meta name="twitter:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0.png?raw=true">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://462937186.github.io/2019/05/19/frame/vue脚手架/">
+
+
+
+
+
+  <title>Vue-cli版本对比整理 | 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://462937186.github.io/2019/05/19/frame/vue脚手架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Admin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue-cli版本对比整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T15:45:52+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Vue-cli-3-0版本与2-X版本比较"><a href="#Vue-cli-3-0版本与2-X版本比较" class="headerlink" title="Vue-cli 3.0版本与2.X版本比较"></a>Vue-cli 3.0版本与2.X版本比较</h3><h5 id="3-0版本创建的目录-vue-create-my-project-以下创建的是默认的模板"><a href="#3-0版本创建的目录-vue-create-my-project-以下创建的是默认的模板" class="headerlink" title="3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板)"></a>3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板)</h5><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0.png?raw=true" alt="vue-cli3.0"></p>
+<h5 id="2-X版本创建的目录-创建命令-vue-init-webpack-my-project"><a href="#2-X版本创建的目录-创建命令-vue-init-webpack-my-project" class="headerlink" title="2.X版本创建的目录       (创建命令 vue init webpack my-project)"></a>2.X版本创建的目录       (创建命令 vue init webpack my-project)</h5><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli2.x.png?raw=true" alt="vue-cli2.x"></p>
+<h4 id="二者区别：主要是配置webpack的区别2-x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3-0版本开始，目录结构相比2-0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue-config-js-文件注意是根目录，不是src目录。"><a href="#二者区别：主要是配置webpack的区别2-x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3-0版本开始，目录结构相比2-0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue-config-js-文件注意是根目录，不是src目录。" class="headerlink" title="二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录结构相比2.0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue.config.js 文件注意是根目录，不是src目录。"></a>二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录结构相比2.0有很大的改变，之前的<code>build</code>和<code>config</code>文件夹没有了，如果要像以前那样配置<code>webpack</code>的参数，只需要在项目的根目录下新建<code>vue.config.js 文件</code>注意是根目录，不是<code>src</code>目录。</h4><h4 id="如果你还想继续使用vue-cli2-x的创建方法可以这样做："><a href="#如果你还想继续使用vue-cli2-x的创建方法可以这样做：" class="headerlink" title="如果你还想继续使用vue-cli2.x的创建方法可以这样做："></a>如果你还想继续使用vue-cli2.x的创建方法可以这样做：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g @vue/cli-init</span><br><span class="line"># `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同</span><br><span class="line">$ vue init webpack my-project</span><br></pre></td></tr></table></figure>
+<h3 id="vue-cli-2-x项目目录说明"><a href="#vue-cli-2-x项目目录说明" class="headerlink" title="vue-cli 2.x项目目录说明"></a>vue-cli 2.x项目目录说明</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> build文件夹中放的是webpack的配置文件，其中webpack.base.conf.js是通用配置，webpack.dev.conf.js是我们在开发项目的时候启动项目的配置，webpack.prod.conf.js是我们开发完成之后，最后打包的时候的配置</span><br><span class="line"><span class="number">2.</span> config文件夹里是将一些配置抽离出来的文件，例如开发服务器的配置</span><br><span class="line"><span class="number">3.</span> <span class="keyword">static</span>是我们的静态文件目标</span><br><span class="line">   我们把一些文件放入到<span class="keyword">static</span>目录中之后就可以使用服务器的绝对地址来引入这些文件了，不用担心打包输出文件后目录结构变化带来的影响</span><br><span class="line"><span class="number">4.</span> src是我们的开发目录</span><br><span class="line">   webpack是一个模块化打包工具，开发的时候可能会写很多模块，这些模块都会互相依赖，最终需要放入到一个文件中，这个文件就是我们的入口文件，而vue项目中一般有一个入口文件就好了</span><br><span class="line">   main.js是我们的入口文件</span><br><span class="line">   我们在开发vue项目的时候，一般情况下都是这样的：</span><br><span class="line">   在外面有一个根实例，根实例里面又有一个根组件，其他的所有的组件都会直接或者间接的引入到根组件中</span><br><span class="line">   在main.js里我们会把引入全局工具、进行全局配置的代码在这里运行或者引入</span><br></pre></td></tr></table></figure>
+<h3 id="vue-cli-3-创建项目步骤："><a href="#vue-cli-3-创建项目步骤：" class="headerlink" title="vue-cli 3 创建项目步骤："></a>vue-cli 3 创建项目步骤：</h3><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-1.png?raw=true" alt="vue-cli-1"></p>
+<h4 id="第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择"><a href="#第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择" class="headerlink" title="第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择"></a>第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-2.png?raw=true" alt="vue-cli-2"></p>
+<h4 id="方向键控制空格选择-Enter进入下一步"><a href="#方向键控制空格选择-Enter进入下一步" class="headerlink" title="方向键控制空格选择 Enter进入下一步"></a>方向键控制空格选择 Enter进入下一步</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-3.png?raw=true" alt="vue-cli-3"></p>
+<h4 id="路由是否选择history模式-否的话是哈希路由，选择css预处理器-sass和less"><a href="#路由是否选择history模式-否的话是哈希路由，选择css预处理器-sass和less" class="headerlink" title="路由是否选择history模式 ,否的话是哈希路由，选择css预处理器 sass和less"></a>路由是否选择history模式 ,否的话是哈希路由，选择css预处理器 sass和less</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-4.png?raw=true" alt="vue-cli-4"></p>
+<h4 id="选择代码规范配置"><a href="#选择代码规范配置" class="headerlink" title="选择代码规范配置"></a>选择代码规范配置</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-5.png?raw=true" alt="vue-cli-5"></p>
+<h4 id="选择保存时候进行代码检测，在后面也可以关闭检测"><a href="#选择保存时候进行代码检测，在后面也可以关闭检测" class="headerlink" title="选择保存时候进行代码检测，在后面也可以关闭检测"></a>选择保存时候进行代码检测，在后面也可以关闭检测</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-6.png?raw=true" alt="vue-cli-6"></p>
+<h4 id="会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。"><a href="#会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。" class="headerlink" title="会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。"></a>会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。</h4><h3 id="vue-cli-3-x需要在根目录也就是与src同级的目录创建一个vue-config-js用来配置webpack，代理等参数。"><a href="#vue-cli-3-x需要在根目录也就是与src同级的目录创建一个vue-config-js用来配置webpack，代理等参数。" class="headerlink" title="vue-cli 3.x需要在根目录也就是与src同级的目录创建一个vue.config.js用来配置webpack，代理等参数。"></a>vue-cli 3.x需要在根目录也就是与src同级的目录创建一个vue.config.js用来配置webpack，代理等参数。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js 配置说明</span></span><br><span class="line"><span class="comment">// 这里只列一部分，具体配置惨考文档</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// baseUrl  type:&#123;string&#125; default:'/'  从 Vue CLI 3.3 起已弃用，请使用publicPath</span></span><br><span class="line">    <span class="comment">// 将部署应用程序的基本URL</span></span><br><span class="line">    <span class="comment">// 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。</span></span><br><span class="line">    <span class="comment">// https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.</span></span><br><span class="line"><span class="comment">//这个值也可以被设置为空字符串 ('') 或是相对路径 ('./') 修改这个 那么打包出来的index.html里的路径也是根据这个改变</span></span><br><span class="line">    publicPath: <span class="string">"./"</span>,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'</span></span><br><span class="line"></span><br><span class="line">     outputDir: <span class="string">'dist'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// pages:&#123; type:Object,Default:undfind &#125; </span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  构建多页面模式的应用程序.每个“页面”都应该有一个相应的JavaScript条目文件。该值应该是一</span></span><br><span class="line"><span class="comment">  个对象，其中键是条目的名称，而该值要么是指定其条目、模板和文件名的对象，要么是指定其条目</span></span><br><span class="line"><span class="comment">  的字符串，</span></span><br><span class="line"><span class="comment">  详情请看下面多页面配置</span></span><br><span class="line"><span class="comment">  注意：请保证pages里配置的路径和文件名 在你的文档目录都存在 否则启动服务会报错的</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">     pages: &#123;</span><br><span class="line">         <span class="comment">//此处如果打包后打开显示空白那就直写 entry  其他不写</span></span><br><span class="line">          <span class="built_in">console</span>: &#123;</span><br><span class="line">            <span class="comment">// 应用入口配置，相当于单页面应用的main.js，必需项</span></span><br><span class="line">            entry: <span class="string">'src/modules/console/console.js'</span>,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 应用的模版，相当于单页面应用的public/index.html，可选项，省略时默认与模块名一致</span></span><br><span class="line">            <span class="comment">// template: 'public/console.html',</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 编译后在dist目录的输出文件名，可选项，省略时默认与模块名一致</span></span><br><span class="line">            <span class="comment">// filename: 'console.html',</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 标题，可选项，一般情况不使用，通常是在路由切换时设置title</span></span><br><span class="line">            <span class="comment">// 需要注意的是使用title属性template 中的 title 标签需要是 &lt;title&gt;&lt;%=htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span></span><br><span class="line">            <span class="comment">// title: 'console page',</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 包含的模块，可选项</span></span><br><span class="line">            <span class="comment">// chunks: ['console']</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 只有entry属性时，直接用字符串表示模块入口</span></span><br><span class="line">        client: <span class="string">'src/modules/client/client.js'</span></span><br><span class="line">   	 &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//   lintOnSave：&#123; type:Boolean default:true &#125; 问你是否使用eslint</span></span><br><span class="line">    lintOnSave: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// productionSourceMap：&#123; type:Bollean,default:true &#125; 生产源映射</span></span><br><span class="line">    <span class="comment">// 如果您不需要生产时的源映射，那么将此设置为false可以加速生产构建</span></span><br><span class="line">    productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// devServer:&#123;type:Object&#125; 3个属性host,port,https</span></span><br><span class="line">    <span class="comment">// 它支持webPack-dev-server的所有选项</span></span><br><span class="line"></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        port: <span class="number">8085</span>, <span class="comment">// 端口号</span></span><br><span class="line">        host: <span class="string">'localhost'</span>,</span><br><span class="line">        https: <span class="literal">false</span>, <span class="comment">// https:&#123;type:Boolean&#125;</span></span><br><span class="line">        open: <span class="literal">true</span>, <span class="comment">//配置自动启动浏览器</span></span><br><span class="line">        <span class="comment">// proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理</span></span><br><span class="line">        proxy: &#123;</span><br><span class="line">            <span class="string">'/api'</span>: &#123;</span><br><span class="line">                target: <span class="string">'&lt;url&gt;'</span>,</span><br><span class="line">                ws: <span class="literal">true</span>,</span><br><span class="line">                changeOrigin: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'/foo'</span>: &#123;</span><br><span class="line">                target: <span class="string">'&lt;other_url&gt;'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,  <span class="comment">// 配置多个代理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="基本上以上的vue-config-js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。"><a href="#基本上以上的vue-config-js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。" class="headerlink" title="基本上以上的vue.config.js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。"></a>基本上以上的vue.config.js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。</h4><h3 id="Vue-cli-3-多页面配置"><a href="#Vue-cli-3-多页面配置" class="headerlink" title="Vue cli 3 多页面配置"></a>Vue cli 3 多页面配置</h3><h5 id="创建多页面应用"><a href="#创建多页面应用" class="headerlink" title="创建多页面应用"></a>创建多页面应用</h5><p>首先，安装两个插件，vue-router和vue-wechat-title。vue-router不解释了，vue-wechat-title为单页面应用修改标题的插件.(就是标签页的名字)</p>
+<h5 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h5><p>在src下创建目录modules，在modules下创建两个模块console和client；</p>
+<p>在public下添加模版console.html和clien.html(直接复制原有的index.html即可，然后修改里面唯一div的id)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"console"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">///模块里的 js vue文件与 app.vue main.js 对比</span><br><span class="line">模块console 的 console.js</span><br><span class="line">//</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Console from &apos;./Console.vue&apos;</span><br><span class="line">import router from &apos;./router&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(require(&apos;vue-wechat-title&apos;))</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">    render: h =&gt; h(Console)</span><br><span class="line">&#125;).$mount(&apos;#console&apos;)</span><br><span class="line">//</span><br><span class="line">main.js</span><br><span class="line">//</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import App from &apos;./App.vue&apos;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = false</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">  	render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&apos;#app&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">////console.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;console&quot; v-wechat-title=&quot;$route.meta.title&quot;&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &quot;console&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">////app.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;app&apos;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="应用路由配置"><a href="#应用路由配置" class="headerlink" title="应用路由配置"></a>应用路由配置</h5><p>通过vue-router为应用配置路由，以console模块为例，在router.js中添加路由配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import VueRouter from &apos;vue-router&apos;</span><br><span class="line">//需要加路由的话就像单页面那样配置</span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line">const routes = [</span><br><span class="line">    &#123; path: &apos;/&apos;, name: &apos;login&apos;, component: r =&gt; &#123; require([&apos;./login/Login&apos;], r) &#125;, meta: &#123; title: &apos;console 登录&apos; &#125;&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">export default new VueRouter(&#123;</span><br><span class="line">    routes: routes</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="应用title跟随路由切换"><a href="#应用title跟随路由切换" class="headerlink" title="应用title跟随路由切换"></a>应用title跟随路由切换</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Console <span class="keyword">from</span> <span class="string">'./Console.vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(<span class="built_in">require</span>(<span class="string">'vue-wechat-title'</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(Console)</span><br><span class="line">&#125;).$mount(<span class="string">'#console'</span>)</span><br></pre></td></tr></table></figure>
+<p>在console.vue中添加<code>v-wechat-title</code>指令，console.vue内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">		//如此路由里就能根据 router.js 里配置的 title 进行切换</span><br><span class="line">    &lt;div id=&quot;console&quot; v-wechat-title=&quot;$route.meta.title&quot;&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &quot;console&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>至此，针对console模块的配置完成，对client模块做相同配置即可。</p>
+<p>项目结构图</p>
+<p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-7.png?raw=true" alt="vue-cli-6"></p>
+<p>模块里的文件可完全复制app.vue和main.js修改。</p>
+<p><a href="https://www.jianshu.com/p/05c1bc5074a9" target="_blank" rel="noopener">参考文档1</a>        <a href="https://blog.csdn.net/wangxinxin1992816/article/details/81097550" target="_blank" rel="noopener">参考文档2</a></p>
+<h4 id="axios踩坑记录-拦截器使用-vue-cli代理跨域proxy-webpack打包部署到服务器"><a href="#axios踩坑记录-拦截器使用-vue-cli代理跨域proxy-webpack打包部署到服务器" class="headerlink" title="axios踩坑记录+拦截器使用+vue cli代理跨域proxy+webpack打包部署到服务器"></a>axios踩坑记录+拦截器使用+vue cli代理跨域proxy+webpack打包部署到服务器</h4><p><a href="https://www.cnblogs.com/goloving/p/8901960.html" target="_blank" rel="noopener">https://www.cnblogs.com/goloving/p/8901960.html</a></p>
+<h4 id="由于还未在项目中实战使用先记到这里，等使用过后再来更新"><a href="#由于还未在项目中实战使用先记到这里，等使用过后再来更新" class="headerlink" title="(由于还未在项目中实战使用先记到这里，等使用过后再来更新)"></a>(由于还未在项目中实战使用先记到这里，等使用过后再来更新)</h4>
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+            
+        
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/19/frame/vue/" rel="next" title="Vue整理文档（2. X脚手架版本2. X)">
+                <i class="fa fa-chevron-left"></i> Vue整理文档（2. X脚手架版本2. X)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/19/frame/小程序/" rel="prev" title="微信小程序起步">
+                微信小程序起步 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="Admin">
+            
+              <p class="site-author-name" itemprop="name">Admin</p>
+              <p class="site-description motion-element" itemprop="description">我有一壶酒足以慰风尘，尽倾江海里，共饮天下人!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/462937186" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-3-0版本与2-X版本比较"><span class="nav-number">1.</span> <span class="nav-text">Vue-cli 3.0版本与2.X版本比较</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-0版本创建的目录-vue-create-my-project-以下创建的是默认的模板"><span class="nav-number">1.0.1.</span> <span class="nav-text">3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-X版本创建的目录-创建命令-vue-init-webpack-my-project"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.X版本创建的目录       (创建命令 vue init webpack my-project)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二者区别：主要是配置webpack的区别2-x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3-0版本开始，目录结构相比2-0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue-config-js-文件注意是根目录，不是src目录。"><span class="nav-number">1.1.</span> <span class="nav-text">二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录结构相比2.0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue.config.js 文件注意是根目录，不是src目录。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你还想继续使用vue-cli2-x的创建方法可以这样做："><span class="nav-number">1.2.</span> <span class="nav-text">如果你还想继续使用vue-cli2.x的创建方法可以这样做：</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-2-x项目目录说明"><span class="nav-number">2.</span> <span class="nav-text">vue-cli 2.x项目目录说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-3-创建项目步骤："><span class="nav-number">3.</span> <span class="nav-text">vue-cli 3 创建项目步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择"><span class="nav-number">3.1.</span> <span class="nav-text">第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方向键控制空格选择-Enter进入下一步"><span class="nav-number">3.2.</span> <span class="nav-text">方向键控制空格选择 Enter进入下一步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由是否选择history模式-否的话是哈希路由，选择css预处理器-sass和less"><span class="nav-number">3.3.</span> <span class="nav-text">路由是否选择history模式 ,否的话是哈希路由，选择css预处理器 sass和less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择代码规范配置"><span class="nav-number">3.4.</span> <span class="nav-text">选择代码规范配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择保存时候进行代码检测，在后面也可以关闭检测"><span class="nav-number">3.5.</span> <span class="nav-text">选择保存时候进行代码检测，在后面也可以关闭检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。"><span class="nav-number">3.6.</span> <span class="nav-text">会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-3-x需要在根目录也就是与src同级的目录创建一个vue-config-js用来配置webpack，代理等参数。"><span class="nav-number">4.</span> <span class="nav-text">vue-cli 3.x需要在根目录也就是与src同级的目录创建一个vue.config.js用来配置webpack，代理等参数。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本上以上的vue-config-js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。"><span class="nav-number">4.1.</span> <span class="nav-text">基本上以上的vue.config.js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-3-多页面配置"><span class="nav-number">5.</span> <span class="nav-text">Vue cli 3 多页面配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建多页面应用"><span class="nav-number">5.0.1.</span> <span class="nav-text">创建多页面应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建模块"><span class="nav-number">5.0.2.</span> <span class="nav-text">创建模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用路由配置"><span class="nav-number">5.0.3.</span> <span class="nav-text">应用路由配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用title跟随路由切换"><span class="nav-number">5.0.4.</span> <span class="nav-text">应用title跟随路由切换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#axios踩坑记录-拦截器使用-vue-cli代理跨域proxy-webpack打包部署到服务器"><span class="nav-number">5.1.</span> <span class="nav-text">axios踩坑记录+拦截器使用+vue cli代理跨域proxy+webpack打包部署到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#由于还未在项目中实战使用先记到这里，等使用过后再来更新"><span class="nav-number">5.2.</span> <span class="nav-text">(由于还未在项目中实战使用先记到这里，等使用过后再来更新)</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Admin</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
